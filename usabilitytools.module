@@ -4,6 +4,7 @@
  * @file
  * Integrates the UsabilityTools to track user activity on website.
  */
+
 define('USABILITYTOOLS_VISIBILITY_NOTLISTED', 0);
 define('USABILITYTOOLS_VISIBILITY_LISTED', 1);
 define('USABILITYTOOLS_VISIBILITY_ROLE_INC', 1);
@@ -46,7 +47,8 @@ function usabilitytools_preprocess_html() {
     foreach (array_keys($user->roles) as $rid) {
       // Is the current user a member of one of these roles?
       if (isset($roles[$rid]) && $rid == $roles[$rid]) {
-        // Current user is a member of a  role that should be tracked/excluded from tracking.
+        // Current user is a member of a  role that should be
+        // tracked/excluded from tracking.
         $enabled = $visibility_roles;
         break;
       }
@@ -54,8 +56,9 @@ function usabilitytools_preprocess_html() {
   }
   else {
     // No role is selected for tracking, therefore all roles should be tracked.
-    $enabled = FALSE;
+    $enabled = !$visibility_roles;
   }
+
   $show_on_this_page = !($visibility xor $page_match);
   $add_widget = $show_on_this_page && $enabled;
   if ($add_widget) {
@@ -69,12 +72,11 @@ function usabilitytools_preprocess_html() {
 function usabilitytools_add_usabilitytools() {
   // Add global settings and scripts to the page.
   drupal_add_js(array(
-      'usabilityTools' => array(
-        'API' => variable_get('usabilitytools_apikey', '')
-      )
+    'usabilityTools' => array(
+      'API' => variable_get('usabilitytools_apikey', ''),
     ),
-    'setting'
+      ), 'setting'
   );
   drupal_add_js(
-    drupal_get_path('module', 'usabilitytools') . '/js/usabilitytools.js');
+      drupal_get_path('module', 'usabilitytools') . '/js/usabilitytools.js');
 }

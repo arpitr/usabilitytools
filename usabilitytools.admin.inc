@@ -2,11 +2,11 @@
 
 /**
  * @file
- * Code related to administrative tasks for the Usersnap module.
+ * Code related to administrative tasks for the Usability Tools module.
  */
 
 /**
- * Provides a Configuration Form for entering the Usersnap API Key.
+ * Provides a Configuration Form for entering the Userability Tools API Key.
  */
 function usabilitytools_admin() {
   $form = array();
