@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Uninstall variables set by Usability Tools module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function usabilitytools_uninstall() {
+  variable_del('usabilitytools_apikey');
+  variable_del('usabilitytools_visibility');
+  variable_del('usabilitytools_paths');
+  variable_del('usabilitytools_visibility_roles');
+  variable_del('usabilitytools_roles');
+}

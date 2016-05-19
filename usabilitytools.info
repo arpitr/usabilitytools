@@ -1,0 +1,6 @@
+name = Usability Tools
+description = Integrates Usability Tools widget with Drupal.
+core = 7.x
+configure = admin/config/services/usabilitytools
+
+
