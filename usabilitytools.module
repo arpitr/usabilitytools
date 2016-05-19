@@ -68,4 +68,13 @@ function usabilitytools_preprocess_html() {
  */
 function usabilitytools_add_usabilitytools() {
   // Add global settings and scripts to the page.
+  drupal_add_js(array(
+      'usabilityTools' => array(
+        'API' => variable_get('usabilitytools_apikey', '')
+      )
+    ),
+    'setting'
+  );
+  drupal_add_js(
+    drupal_get_path('module', 'usabilitytools') . '/js/usabilitytools.js');
 }
